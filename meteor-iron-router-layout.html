@@ -1,0 +1,88 @@
+<head>
+    <title>Meteor Iron Router Layout</title>
+</head>
+
+<template name="applicationLayout">
+    <header>
+        {{> navbar}}
+    </header>
+    {{> yield}}
+    {{> footer}}
+</template>
+
+<template name="main">
+    <p>Welcome!</p>
+</template>
+
+<template name="background1">
+    <div id="backgroundDiv1">
+    </div>
+</template>
+
+<template name="home">
+    <button>Click Me</button>
+    <p>You've pressed the button {{counter}} times.</p>
+
+    <div id="backgroundDiv2">
+    </div>
+</template>
+
+<template name="highScores">
+    <p>High Scores</p>
+</template>
+
+<template name="faq">
+    <p>FAQ</p>
+</template>
+
+<template name="wiki">
+    <p>Wiki</p>
+</template>
+
+<template name="about">
+    <p>Yoooooo!</p>
+</template>
+
+<template name='navbar'>
+    <nav class="navbar navbar-inverse" style="border-radius:0 !important">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">My Website</a>
+            </div>
+            <ul class="nav navbar-nav">
+                {{> navItems}}
+            </ul>
+        </div>
+    </nav>
+</template>
+
+<template name='navItems'>
+    <li role="presentation" class="{{ activeIfTemplateIs 'home' }}"><a href="{{pathFor route='home'}}">Home</a></li>
+    <li role="presentation" class="{{ activeIfTemplateIs 'faq' }}"><a href="{{pathFor route='faq'}}">FAQ</a></li>
+    <li role="presentation" class="{{ activeIfTemplateIs 'wiki' }}"><a href="{{pathFor route='wiki'}}">Wiki</a></li>
+    <li role="presentation" class="{{ activeIfTemplateIs 'highScores' }}"><a href="{{pathFor route='highScores'}}">High
+        Scores</a></li>
+    <li role="presentation" class="{{ activeIfTemplateIs 'about' }}"><a href="{{pathFor route='about'}}">About</a></li>
+</template>
+
+<template name="footer">
+    <footer class="footer-basic-centered">
+        <p class="footer-company-motto">The company motto.</p>
+
+        <p class="footer-links">
+            <a href="#">Home</a>
+            ·
+            <a href="#">Blog</a>
+            ·
+            <a href="#">Pricing</a>
+            ·
+            <a href="#">About</a>
+            ·
+            <a href="#">Faq</a>
+            ·
+            <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Company Name &copy; 2015</p>
+    </footer>
+</template>
